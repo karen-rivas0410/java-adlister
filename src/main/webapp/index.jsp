@@ -11,5 +11,10 @@
     <c:if test="false">
         <h1>single letter variable names are good</h1>
     </c:if>
+
+
+<c:if test="${isAdmin}"></c:if>
+<c:if test="${isPassword}"></c:if>
+
 </body>
 </html>
