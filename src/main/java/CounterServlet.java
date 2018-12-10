@@ -5,16 +5,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "CounterServlet")
+@WebServlet(name = "CounterServlet",urlPatterns = "/counter")
 public class CounterServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    }
+    public static int count = 0; //does not need to be static//
 
-    public static int count = 1;
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().println(count);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String reset = request.getParameter("reset");
+        if (reset != null) count = 0;
         count++;
+        response.getWriter().println("<h1>page viewed " + count + " times.</h1>");
     }
 }
