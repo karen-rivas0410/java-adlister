@@ -1,20 +1,20 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title><%= "some title" %></title>
+    <title><%= "Main Page" %></title>
 </head>
 <body>
-    <c:if test="true">
-        <h1>Variable names should be very descriptive</h1>
-    </c:if>
-    <c:if test="false">
-        <h1>single letter variable names are good</h1>
-    </c:if>
-
-
-<c:if test="${isAdmin}"></c:if>
-<c:if test="${isPassword}"></c:if>
+    <%--<c:if test="true">--%>
+        <%--<h1>Variable names should be very descriptive</h1>--%>
+    <%--</c:if>--%>
+    <%--<c:if test="false">--%>
+        <%--<h1>single letter variable names are good</h1>--%>
+    <%--</c:if>--%>
+    <h1>Welcome to the Site!</h1>
+    <form action="login.jsp">
+        <button type="submit" class="btn btn-light">Login!</button>
+    </form>
 
 </body>
 </html>
