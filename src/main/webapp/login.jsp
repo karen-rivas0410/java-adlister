@@ -9,11 +9,12 @@
 
 <html>
 <head>
-    <title>login</title>
     <%@ include file="partials/head.html"%>
+    <title>login</title>
 </head>
 <body>
 <%@ include file="partials/navbar.html" %>
+
 <h1>Login Form</h1>
 
 <form method="post">
@@ -21,8 +22,6 @@
     Password:<input type="password" name="password" required/><br/><br/>
     <input type="submit" value="login"/>
 </form>
-
-
 
 </body>
 </html>
