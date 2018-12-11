@@ -10,6 +10,7 @@
 <html>
 <head>
     <%@ include file="partials/head.html"%>
+    <%--or you could use jsp include with the param--%>
     <title>login</title>
 </head>
 <body>
