@@ -9,7 +9,11 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+        if (request.getSession().setAttribute("user") == null) {
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("/profile");
+        }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -18,17 +22,11 @@ public class LoginServlet extends HttpServlet {
         boolean validAttempt = username.equals("admin") && password.equals("password");
 
         if (validAttempt) {
+//            this is calling the session object.
             request.getSession().setAttribute("user", username);
-            response.sendRedirect("profile");
+            response.sendRedirect("/profile");
         } else {
-            response.sendRedirect("login");
+            response.sendRedirect("/login");
         }
-
-//        HttpSession session = request.getSession(false);
-//        if (session == null || session.getAttribute("username") == null) {
-//            response.sendRedirect("/login.jsp");
-//        } else {
-//            response.sendRedirect("/profile.jsp");
-//        }
     }
 }
